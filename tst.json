@@ -1,5 +1,5 @@
+
 {
-  "login": [],
   "users": [
     {
       "email": "a@aas",
@@ -38,12 +38,6 @@
       "id": 5,
       "title": "nesciunt quas odio",
       "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
-    },
-    {
-      "userId": 1,
-      "id": 6,
-      "title": "dolorem eum magni eos aperiam quia",
-      "body": "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae"
     }
     
   ],
@@ -88,14 +82,8 @@
       "name": "autem ab ea sit alias hic provident sit",
       "email": "Isaias_Kuhic@jarrett.net",
       "body": "sunt aut quae laboriosam sit ut impedit\nadipisci harum laborum totam deleniti voluptas odit rem ea\nnon iure distinctio ut velit doloribus\net non ex"
-    },
-    {
-      "postId": 6,
-      "id": 30,
-      "name": "quasi nulla ducimus facilis non voluptas aut",
-      "email": "Lurline@marvin.biz",
-      "body": "consequuntur quia voluptate assumenda et\nautem voluptatem reiciendis ipsum animi est provident\nearum aperiam sapiente ad vitae iste\naccusantium aperiam eius qui dolore voluptatem et"
     }
+ 
    
   ],
   "photos": [
@@ -133,13 +121,6 @@
       "title": "natus nisi omnis corporis facere molestiae rerum in",
       "url": "https://via.placeholder.com/600/f66b97",
       "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
-    },
-    {
-      "albumId": 1,
-      "id": 6,
-      "title": "accusamus ea aliquid et amet sequi nemo",
-      "url": "https://via.placeholder.com/600/56a8c2",
-      "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
     }
    
   ],
@@ -191,44 +172,7 @@
         "rate": 2.1,
         "count": 430
       }
-    },
-    {
-      "id": 5,
-      "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
-      "price": 695,
-      "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
-      "category": "jewelery",
-      "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
-      "rating": {
-        "rate": 4.6,
-        "count": 400
-      }
-    },
-    {
-      "id": 6,
-      "title": "Solid Gold Petite Micropave ",
-      "price": 168,
-      "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
-      "category": "jewelery",
-      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
-      "rating": {
-        "rate": 3.9,
-        "count": 70
-      }
-    },
-    {
-      "id": 7,
-      "title": "White Gold Plated Princess",
-      "price": 9.99,
-      "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
-      "category": "jewelery",
-      "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
-      "rating": {
-        "rate": 3,
-        "count": 400
-      }
     }
-  
   ],
   "cart": [
     {

@@ -6,10 +6,15 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "jsonapi": "json-server-auth db.json --port 5000"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/fontawesome": "^1.1.2",
+    "axios": "^0.24.0",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3"
   },

@@ -14,7 +14,10 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:"stylesheet", type: 'text/css', href: "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" },
+      { rel:"stylesheet", type: 'text/css', href: "https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" }
+    
     ]
   },
 
@@ -33,6 +36,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -42,28 +46,48 @@ export default {
 ** Nuxt.js modules
 */
 modules: [
+  
   '@nuxtjs/auth',
   // Doc: https://github.com/nuxt-community/axios-module#usage
   '@nuxtjs/axios',
   // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
   // '@nuxtjs/bulma'
 ],
+// dev: process.env.NODE_ENV !== 'production',
+
+fontawesome: {
+  icons: {
+    solid: true,
+    regular: [],
+    light: [],
+    duotone: [],
+    brands: []
+  }
+},
+
 auth: {
   strategies: {
     local: {
+      token: {
+        property: 'token',
+        required: true,
+        type: 'Bearer'
+      },
+      user: {
+        property: false, // here should be `false`, as you defined in user endpoint `propertyName`
+        autoFetch: true
+      },
       endpoints: {
-        login: {
-          url: '/api/login',
-          method: 'post',
-          propertyName: 'accessToken'
-        },
+        login: {url: 'api/login', method: 'post',  propertyName: 'accessToken' },
         logout: false,
-        user: { url: '/api/user', method: 'get' }
+        user: {url: 'api/users', method: 'get', propertyName: false }
       }
     }
   }
 },
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+
+// Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
@@ -81,6 +105,7 @@ auth: {
       }
     }
   },
+
   /*
 ** axios module configuration
 */
@@ -88,10 +113,11 @@ axios: {
   proxy: true
 },
 proxy: {
-  '/api/': { target: 'http://localhost:3001', pathRewrite: { '^/api/': '' } }
+  '/api/': { target: 'http://localhost:5000', pathRewrite: { '/api/': '' } }
 },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
+
 }

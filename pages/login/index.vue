@@ -1,67 +1,90 @@
 <template>
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <div class="column is-4 is-offset-4">
-          <h3 class="title has-text-grey">Login</h3>
-          <p class="subtitle has-text-grey">Please log in to proceed.</p>
-          <div class="box">
-            <form @submit.prevent="onSubmit">
-              <div class="field">
-                <div class="control">
-                  <input
-                    v-model="email"
-                    class="input"
-                    type="email"
-                    placeholder="Your Email"
-                    autofocus
-                  >
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input
-                    v-model="password"
-                    class="input"
-                    type="password"
-                    placeholder="Your Password"
-                  >
-                </div>
-              </div>
-              <button class="button is-block is-info is-fullwidth">Login</button>
-            </form>
-          </div>
-          <div
-            v-if="showError"
-            class="notification is-danger"
-          >
-            <strong>Oops — we couldn't log you in!</strong><br>
-            Please check your email and password and try again.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<v-container>
+  <v-form v-model="valid">
+    <v-container>
+      <v-row>
+        <v-col
+          cols="6"
+        >
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col
+          cols="6"
+        >
+          <v-text-field
+            v-model="password"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]"
+            :type="show1 ? 'text' : 'password'"
+            name="input-10-1"
+            label="enter your password"
+            hint="At least 8 characters"
+            counter
+            required
+            @click:append="show1 = !show1"
+          ></v-text-field>
+          </v-col>
+          </v-row>
+        <v-btn
+        :disabled = !valid
+        @click="onSubmit"
+        >
+        login
+        </v-btn>
+    </v-container>
+  </v-form>
+</v-container>
 </template>
 
-
 <script>
+import { mapActions } from 'vuex'
 export default {
-  data: () => ({
-    email: '',
-    password: '',
-    showError: false
-  }),
+  data: () =>  ({
+      valid: false,
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
+        show1: false,
+        password: '',
+        rules: {
+          required: value => !!value || 'Required.',
+          min: v => v.length >=8 || 'Min 8 characters',
+          // emailMatch: () => (`The email and password you entered don't match`),
+        },
+    }),
+
   methods: {
+    ...mapActions(['fetchcart']),
     async onSubmit() {
+      console.log(this.email , this.password);
       try {
+          // await this.$auth.loginWith('local', { data: 
+          // {  email: this.email,
+          //   password: this.password }
+          //     }).then(() =>console.log('succes')) 
+      //  alert('logged in'))
+        
         await this.$auth.login({
           data: {
             email: this.email,
             password: this.password
-          }
-        })
-      } catch (error) {
+          },
+        }).then(()=> alert('logged in'))
+        this.fetchcart(1)
+        this.$router.push('/')
+      } 
+      catch (error) {
+        console.log(error);
+        alert('errr')
         this.showError = true
       }
     }
